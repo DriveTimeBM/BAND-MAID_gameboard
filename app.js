@@ -197,6 +197,7 @@ function buildCell(space, theme, config, gridSize) {
 
   const body = document.createElement('div');
   body.className = 'cell-body';
+  body.style.paddingTop = space.colorGroup ? '25%' : '3%';
 
   if (space.image) {
     const img = document.createElement('img');

@@ -195,28 +195,31 @@ input[type="file"]:focus-visible {
 }
 
 .cell-rotator {
+  position: relative;
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
   transform-origin: 50% 50%;
 }
 
 .cell-color-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 22%;
   min-height: 8px;
-  flex-shrink: 0;
 }
 
 .cell-body {
-  flex: 1;
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   padding: 3% 4%;
   gap: 2px;
-  min-height: 0;
+  overflow: hidden;
 }
 
 .cell-image {
@@ -238,6 +241,9 @@ input[type="file"]:focus-visible {
   line-height: 1.15;
   text-align: center;
   color: var(--text-color, #1a1a1a);
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
   word-break: break-word;
 }
 
@@ -250,6 +256,10 @@ input[type="file"]:focus-visible {
   font-size: clamp(5px, 0.65vw, 9px);
   color: var(--text-color, #1a1a1a);
   opacity: 0.65;
+  width: 100%;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .cell-index-badge {
