@@ -70,6 +70,18 @@ Full field-by-field documentation lives as a comment block at the top of
   - `type` — free-form string, added as a CSS class (`type-corner`,
     `type-property`, ...) so you can hook in extra styling per space kind if
     you want to
+  - `rotate` — degrees clockwise, overrides the automatic rotation for that
+    one space
+
+### Rotation
+
+Content auto-rotates to face the board's center, matching real Monopoly
+boards: bottom edge `0deg`, left edge `90deg`, top edge `180deg`, right edge
+`270deg`. Corners default to `0deg` (their art is usually custom/asymmetric
+anyway). This is on by default — set top-level `"autoRotate": false` to turn
+it off everywhere, or set `"rotate"` on an individual space to override just
+that one. Click a space in the viewer to see its effective rotation in the
+inspector panel.
 
 ## Notes
 

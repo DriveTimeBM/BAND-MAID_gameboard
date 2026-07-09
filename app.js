@@ -22,6 +22,7 @@
  *     "image": "https://... (optional)",
  *     "bg": "#d7ecd9"               // optional center-panel background
  *   },
+ *   "autoRotate": true,             // optional, default true — see rotation note below
  *   "spaces": [
  *     {
  *       "index": 0,                 // used only as a stable key/label
@@ -31,10 +32,20 @@
  *       "colorGroup": null,         // hex color for the top bar, or null/omitted
  *       "image": "",                // image URL, or "" to skip
  *       "icon": "",                 // emoji/text fallback shown if no image
- *       "subtext": "Collect 200"    // small secondary line
+ *       "subtext": "Collect 200",   // small secondary line
+ *       "rotate": 90                // optional, degrees clockwise. Overrides the auto default below.
  *     }
  *   ]
  * }
+ *
+ * ---- Rotation ----
+ * Classic Monopoly boards rotate each side's content to face the center.
+ * That's the default here (autoRotate: true, or simply omitted):
+ *   bottom edge -> 0deg, left edge -> 90deg, top edge -> 180deg, right edge -> 270deg
+ *   corners default to 0deg (their art is usually asymmetric/custom anyway)
+ * Set a per-space "rotate" (any degree value) to override the default for that
+ * one space, or set top-level "autoRotate": false to turn off auto-rotation
+ * entirely (every space then defaults to 0deg unless it sets its own "rotate").
  */
 
 const state = {
@@ -138,7 +149,7 @@ function renderBoard(config) {
   els.board.style.gridTemplateRows = template;
 
   config.spaces.forEach(space => {
-    const cell = buildCell(space, theme);
+    const cell = buildCell(space, theme, config, gridSize);
     els.board.appendChild(cell);
   });
 
@@ -152,10 +163,11 @@ function inferGridSize(spaces) {
   return max || 11;
 }
 
-function buildCell(space, theme) {
+function buildCell(space, theme, config, gridSize) {
   const cell = document.createElement('div');
   cell.className = 'cell' + (space.type ? ` type-${slug(space.type)}` : '');
-  if (space.type === 'corner') cell.classList.add('corner');
+  const isCorner = isCornerPos(space.row, space.col, gridSize);
+  if (isCorner) cell.classList.add('corner');
   cell.style.gridRow = space.row;
   cell.style.gridColumn = space.col;
   cell.style.setProperty('--cell-bg', theme.cellBg || '#faf8f2');
@@ -164,17 +176,24 @@ function buildCell(space, theme) {
   cell.setAttribute('role', 'gridcell');
   cell.setAttribute('aria-label', space.name || `space ${space.index}`);
 
-  if (space.colorGroup) {
-    const bar = document.createElement('div');
-    bar.className = 'cell-color-bar';
-    bar.style.background = space.colorGroup;
-    cell.appendChild(bar);
-  }
-
   const badge = document.createElement('span');
   badge.className = 'cell-index-badge';
   badge.textContent = space.index != null ? `#${space.index} \u00b7 ${space.row},${space.col}` : `${space.row},${space.col}`;
   cell.appendChild(badge);
+
+  // Everything visual lives in a rotator wrapper so the cell itself stays
+  // put in the grid track while its contents face the board's center.
+  const rotator = document.createElement('div');
+  rotator.className = 'cell-rotator';
+  const rotation = computeRotation(space, config, gridSize, isCorner);
+  rotator.style.transform = `rotate(${rotation}deg)`;
+
+  if (space.colorGroup) {
+    const bar = document.createElement('div');
+    bar.className = 'cell-color-bar';
+    bar.style.background = space.colorGroup;
+    rotator.appendChild(bar);
+  }
 
   const body = document.createElement('div');
   body.className = 'cell-body';
@@ -205,17 +224,38 @@ function buildCell(space, theme) {
     body.appendChild(sub);
   }
 
-  cell.appendChild(body);
+  rotator.appendChild(body);
+  cell.appendChild(rotator);
 
-  cell.addEventListener('click', () => selectCell(cell, space, theme));
+  cell.addEventListener('click', () => selectCell(cell, space, theme, rotation));
   cell.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      selectCell(cell, space, theme);
+      selectCell(cell, space, theme, rotation);
     }
   });
 
   return cell;
+}
+
+function isCornerPos(row, col, gridSize) {
+  const atEdgeRow = row === 1 || row === gridSize;
+  const atEdgeCol = col === 1 || col === gridSize;
+  return atEdgeRow && atEdgeCol;
+}
+
+function computeRotation(space, config, gridSize, isCorner) {
+  if (space.rotate !== undefined && space.rotate !== null && space.rotate !== '') {
+    return Number(space.rotate);
+  }
+  const autoRotate = config.autoRotate !== false; // default true
+  if (!autoRotate || isCorner) return 0;
+
+  if (space.row === gridSize) return 0;   // bottom edge
+  if (space.col === 1) return 90;         // left edge
+  if (space.row === 1) return 180;        // top edge
+  if (space.col === gridSize) return 270; // right edge
+  return 0;
 }
 
 function maybeAddIcon(body, space) {
@@ -252,15 +292,15 @@ function buildCenter(center, theme) {
   return wrap;
 }
 
-function selectCell(cellEl, space, theme) {
+function selectCell(cellEl, space, theme, rotation) {
   if (state.selectedCell) state.selectedCell.classList.remove('selected');
   cellEl.classList.add('selected');
   cellEl.style.setProperty('--accent-outline', theme.accentColor || '#e8b34c');
   state.selectedCell = cellEl;
-  renderInspector(space);
+  renderInspector(space, rotation);
 }
 
-function renderInspector(space) {
+function renderInspector(space, rotation) {
   const rows = Object.entries(space)
     .filter(([k, v]) => v !== '' && v !== null && v !== undefined)
     .map(([k, v]) => {
@@ -270,9 +310,14 @@ function renderInspector(space) {
     })
     .join('');
 
+  const rotateNote = space.rotate === undefined || space.rotate === null || space.rotate === ''
+    ? ` <span class="inspector-auto">(auto)</span>`
+    : '';
+
   els.inspector.innerHTML = `
     <p class="inspector-title">Space Inspector</p>
     <h3 class="inspector-name">${escapeHtml(space.name || 'Untitled')}</h3>
+    <div class="inspector-row"><span class="inspector-key">effective rotate</span><span class="inspector-val">${rotation}deg${rotateNote}</span></div>
     ${rows}
   `;
 }
