@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Board Skin Viewer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark">&#9633;</span>
+    <div class="brand-text">
+      <h1>Board Skin Viewer</h1>
+      <p>Render any JSON-defined game board</p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label class="control">
+      <span class="control-label">Skin</span>
+      <select id="skin-select" aria-label="Choose a board skin"></select>
+    </label>
+
+    <label class="control file-control">
+      <span class="control-label">Custom JSON</span>
+      <input type="file" id="file-input" accept="application/json,.json">
+    </label>
+  </div>
+</header>
+
+<main class="stage">
+  <div class="board-wrap">
+    <div id="board" class="board" role="grid" aria-label="Game board"></div>
+  </div>
+
+  <aside id="inspector" class="inspector">
+    <div class="inspector-empty">
+      <p class="inspector-hint">Click any space</p>
+      <p class="inspector-sub">to inspect its config data</p>
+    </div>
+  </aside>
+</main>
+
+<footer class="statusbar">
+  <span id="status-text">Loading manifest&hellip;</span>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "skins": [
+    { "id": "metro-properties", "name": "Metro Properties (demo)", "file": "configs/metro-properties.json" },
+    { "id": "neon-cyber", "name": "Neon Cyber (demo)", "file": "configs/neon-cyber.json" }
+  ]
+}
