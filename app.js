@@ -141,12 +141,8 @@ function renderBoard(config) {
   els.board.style.background = theme.boardBg || '#e8e8e0';
   els.board.style.borderColor = theme.borderColor || '#000';
 
-  const edgeTrack = '1fr';
-  const cornerTrack = '1.6fr';
-  const middleCount = Math.max(gridSize - 2, 0);
-  const template = [cornerTrack, `repeat(${middleCount}, ${edgeTrack})`, cornerTrack].join(' ');
-  els.board.style.gridTemplateColumns = template;
-  els.board.style.gridTemplateRows = template;
+  els.board.style.gridTemplateColumns = `repeat(${gridSize}, 1fr)`;
+  els.board.style.gridTemplateRows = `repeat(${gridSize}, 1fr)`;
 
   config.spaces.forEach(space => {
     const cell = buildCell(space, theme, config, gridSize);
