@@ -365,23 +365,23 @@
       "index": 31,
       "row": 2,
       "col": 11,
-      "name": "Pinegrove Ave",
+      "name": "TAMAYA!",
       "type": "property",
-      "subtext": "Price 100",
+      "subtext": "750",
       "icon": "",
-      "colorGroup": "#3ea366",
-      "image": ""
+      "colorGroup": "",
+      "image": "https://raw.githubusercontent.com/DriveTimeBM/BAND-MAID_creations/main/album_covers/21%20Epic%20Narratives.png"
     },
     {
       "index": 32,
       "row": 3,
       "col": 11,
-      "name": "Cedar Heights",
+      "name": "Shambles",
       "type": "property",
-      "subtext": "Price 100",
+      "subtext": "800",
       "icon": "",
-      "colorGroup": "#3ea366",
-      "image": ""
+      "colorGroup": "",
+      "image": "https://raw.githubusercontent.com/DriveTimeBM/BAND-MAID_creations/main/album_covers/21%20Epic%20Narratives.png"
     },
     {
       "index": 33,
@@ -398,12 +398,12 @@
       "index": 34,
       "row": 5,
       "col": 11,
-      "name": "Forest Way",
+      "name": "Forbidden Tale",
       "type": "property",
-      "subtext": "Price 100",
+      "subtext": "900",
       "icon": "",
-      "colorGroup": "#3ea366",
-      "image": ""
+      "colorGroup": "",
+      "image": "https://raw.githubusercontent.com/DriveTimeBM/BAND-MAID_creations/main/album_covers/21%20Epic%20Narratives.png"
     },
     {
       "index": 35,
@@ -431,12 +431,12 @@
       "index": 37,
       "row": 8,
       "col": 11,
-      "name": "Skyline Blvd",
+      "name": "What is justice?",
       "type": "property",
-      "subtext": "Price 100",
+      "subtext": "1,000",
       "icon": "",
-      "colorGroup": "#2c6fbb",
-      "image": ""
+      "colorGroup": "",
+      "image": "https://raw.githubusercontent.com/DriveTimeBM/BAND-MAID_creations/main/album_covers/SCOOOOOP.png"
     },
     {
       "index": 38,
@@ -453,12 +453,12 @@
       "index": 39,
       "row": 10,
       "col": 11,
-      "name": "Grand Avenue",
+      "name": "Ready to Rock",
       "type": "property",
-      "subtext": "Price 100",
+      "subtext": "1,100",
       "icon": "",
-      "colorGroup": "#2c6fbb",
-      "image": ""
+      "colorGroup": "",
+      "image": "https://raw.githubusercontent.com/DriveTimeBM/BAND-MAID_creations/main/album_covers/SCOOOOOP.png"
     }
   ]
 }
