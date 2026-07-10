@@ -30,13 +30,24 @@
  *       "name": "GO",
  *       "type": "corner",           // free-form string, only used as a CSS class hook
  *       "colorGroup": null,         // hex color for the top bar, or null/omitted
- *       "image": "",                // image URL, or "" to skip
- *       "icon": "",                 // emoji/text fallback shown if no image
+ *       "image": "",                // image URL — fills the ENTIRE square as a cover
+ *                                    //   background (behind everything else), or "" to skip
+ *       "icon": "",                 // emoji/text fallback shown if no image (or image fails to load)
  *       "subtext": "Collect 200",   // small secondary line
+ *       "textBg": "",               // optional CSS color (hex/rgba) behind name+subtext+icon,
+ *                                    //   so text stays readable over a busy image. "" / omitted = transparent
  *       "rotate": 90                // optional, degrees clockwise. Overrides the auto default below.
  *     }
  *   ]
  * }
+ *
+ * ---- Images ----
+ * "image" is rendered as a full-bleed cover background for the whole square
+ * (like CSS background-size: cover), with the color bar, name, subtext, and
+ * icon layered on top. It rotates together with the rest of the cell's
+ * content. Use "textBg" (e.g. "rgba(0,0,0,0.55)") to keep the name/subtext
+ * legible over a photo — it's applied as a background on the label chip that
+ * wraps them.
  *
  * ---- Rotation ----
  * Classic Monopoly boards rotate each side's content to face the center.
@@ -191,36 +202,46 @@ function buildCell(space, theme, config, gridSize) {
     rotator.appendChild(bar);
   }
 
+  if (space.image) {
+    const bgImg = document.createElement('img');
+    bgImg.className = 'cell-bg-image';
+    bgImg.src = space.image;
+    bgImg.alt = '';
+    bgImg.loading = 'lazy';
+    rotator.appendChild(bgImg);
+  }
+
   const body = document.createElement('div');
   body.className = 'cell-body';
   body.style.paddingTop = space.colorGroup ? '25%' : '3%';
 
+  const label = document.createElement('div');
+  label.className = 'cell-label';
+  if (space.textBg) label.style.background = space.textBg;
+
   if (space.image) {
-    const img = document.createElement('img');
-    img.className = 'cell-image';
-    img.src = space.image;
-    img.alt = '';
-    img.loading = 'lazy';
-    img.onerror = () => { img.remove(); maybeAddIcon(body, space); };
-    body.appendChild(img);
+    // If the image 404s, fall back to the icon inside the label.
+    const bgImg = rotator.querySelector('.cell-bg-image');
+    bgImg.onerror = () => { bgImg.remove(); maybeAddIcon(label, space); };
   } else {
-    maybeAddIcon(body, space);
+    maybeAddIcon(label, space);
   }
 
   if (space.name) {
     const name = document.createElement('div');
     name.className = 'cell-name';
     name.textContent = space.name;
-    body.appendChild(name);
+    label.appendChild(name);
   }
 
   if (space.subtext) {
     const sub = document.createElement('div');
     sub.className = 'cell-subtext';
     sub.textContent = space.subtext;
-    body.appendChild(sub);
+    label.appendChild(sub);
   }
 
+  body.appendChild(label);
   rotator.appendChild(body);
   cell.appendChild(rotator);
 
@@ -301,7 +322,7 @@ function renderInspector(space, rotation) {
   const rows = Object.entries(space)
     .filter(([k, v]) => v !== '' && v !== null && v !== undefined)
     .map(([k, v]) => {
-      const isColor = k === 'colorGroup';
+      const isColor = k === 'colorGroup' || k === 'textBg';
       const swatch = isColor ? `<span class="inspector-swatch" style="background:${v}"></span>` : '';
       return `<div class="inspector-row"><span class="inspector-key">${escapeHtml(k)}</span><span class="inspector-val">${escapeHtml(String(v))}${swatch}</span></div>`;
     })

@@ -13,7 +13,7 @@
   },
   "center": {
     "title": "METRO PROPERTIES",
-    "subtitle": "A city trading board — sample skin",
+    "subtitle": "A city trading board \u2014 sample skin",
     "image": "",
     "bg": "#d7ecd9"
   },
@@ -25,7 +25,7 @@
       "name": "Start",
       "type": "corner",
       "subtext": "Collect 200 on pass",
-      "icon": "▶",
+      "icon": "\u25b6",
       "colorGroup": null,
       "image": ""
     },
@@ -38,7 +38,8 @@
       "subtext": "Price 100",
       "icon": "",
       "colorGroup": "#8a5a3b",
-      "image": ""
+      "image": "https://picsum.photos/seed/elmstreet/300/300",
+      "textBg": "rgba(0,0,0,0.55)"
     },
     {
       "index": 2,
@@ -47,7 +48,7 @@
       "name": "Fund",
       "type": "fund",
       "subtext": "Draw a card",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "colorGroup": null,
       "image": ""
     },
@@ -69,7 +70,7 @@
       "name": "City Tax",
       "type": "tax",
       "subtext": "Pay 100",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "colorGroup": null,
       "image": ""
     },
@@ -80,7 +81,7 @@
       "name": "North Station",
       "type": "transit",
       "subtext": "Railway",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -93,7 +94,7 @@
       "subtext": "Price 100",
       "icon": "",
       "colorGroup": "#a9d1f7",
-      "image": "https://raw.githubusercontent.com/DriveTimeBM/BAND-MAID_creations/main/album_covers/SCOOOOOP.png"
+      "image": ""
     },
     {
       "index": 7,
@@ -102,7 +103,7 @@
       "name": "Fortune",
       "type": "fortune",
       "subtext": "Draw a card",
-      "icon": "❓",
+      "icon": "\u2753",
       "colorGroup": null,
       "image": ""
     },
@@ -135,7 +136,7 @@
       "name": "Detention",
       "type": "corner",
       "subtext": "Just visiting",
-      "icon": "■",
+      "icon": "\u25a0",
       "colorGroup": null,
       "image": ""
     },
@@ -157,7 +158,7 @@
       "name": "Water Utility",
       "type": "utility",
       "subtext": "Utility",
-      "icon": "💧",
+      "icon": "\ud83d\udca7",
       "colorGroup": null,
       "image": ""
     },
@@ -190,7 +191,7 @@
       "name": "East Station",
       "type": "transit",
       "subtext": "Railway",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -203,7 +204,8 @@
       "subtext": "Price 100",
       "icon": "",
       "colorGroup": "#f0a63a",
-      "image": ""
+      "image": "https://picsum.photos/seed/marketsquare/300/300",
+      "textBg": "rgba(20,20,20,0.6)"
     },
     {
       "index": 17,
@@ -212,7 +214,7 @@
       "name": "Fund",
       "type": "fund",
       "subtext": "Draw a card",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "colorGroup": null,
       "image": ""
     },
@@ -245,7 +247,7 @@
       "name": "Rest Stop",
       "type": "corner",
       "subtext": "Take a breather",
-      "icon": "★",
+      "icon": "\u2605",
       "colorGroup": null,
       "image": ""
     },
@@ -267,7 +269,7 @@
       "name": "Fortune",
       "type": "fortune",
       "subtext": "Draw a card",
-      "icon": "❓",
+      "icon": "\u2753",
       "colorGroup": null,
       "image": ""
     },
@@ -300,7 +302,7 @@
       "name": "South Station",
       "type": "transit",
       "subtext": "Railway",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -333,7 +335,7 @@
       "name": "Power Utility",
       "type": "utility",
       "subtext": "Utility",
-      "icon": "⚡",
+      "icon": "\u26a1",
       "colorGroup": null,
       "image": ""
     },
@@ -355,7 +357,7 @@
       "name": "Depart",
       "type": "corner",
       "subtext": "Go directly to Detention",
-      "icon": "→",
+      "icon": "\u2192",
       "colorGroup": null,
       "image": ""
     },
@@ -388,7 +390,7 @@
       "name": "Fund",
       "type": "fund",
       "subtext": "Draw a card",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "colorGroup": null,
       "image": ""
     },
@@ -410,7 +412,7 @@
       "name": "West Station",
       "type": "transit",
       "subtext": "Railway",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -421,7 +423,7 @@
       "name": "Fortune",
       "type": "fortune",
       "subtext": "Draw a card",
-      "icon": "❓",
+      "icon": "\u2753",
       "colorGroup": null,
       "image": ""
     },
@@ -443,7 +445,7 @@
       "name": "Luxury Tax",
       "type": "tax",
       "subtext": "Pay 75",
-      "icon": "💎",
+      "icon": "\ud83d\udc8e",
       "colorGroup": null,
       "image": ""
     },

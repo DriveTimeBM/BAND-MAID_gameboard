@@ -13,7 +13,7 @@
   },
   "center": {
     "title": "NEON CYBER",
-    "subtitle": "A sci-fi trading board — sample skin",
+    "subtitle": "A sci-fi trading board \u2014 sample skin",
     "image": "",
     "bg": "#0d0e1a"
   },
@@ -25,7 +25,7 @@
       "name": "Boot",
       "type": "corner",
       "subtext": "Collect 200 credits",
-      "icon": "▶",
+      "icon": "\u25b6",
       "colorGroup": null,
       "image": ""
     },
@@ -38,7 +38,8 @@
       "subtext": "Price 100",
       "icon": "",
       "colorGroup": "#ff2fb2",
-      "image": ""
+      "image": "https://picsum.photos/seed/chromealley/300/300",
+      "textBg": "rgba(13,14,26,0.65)"
     },
     {
       "index": 2,
@@ -47,7 +48,7 @@
       "name": "Cache Drop",
       "type": "fund",
       "subtext": "Draw a card",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "colorGroup": null,
       "image": ""
     },
@@ -69,7 +70,7 @@
       "name": "Bandwidth Fee",
       "type": "tax",
       "subtext": "Pay 100 credits",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "colorGroup": null,
       "image": ""
     },
@@ -80,7 +81,7 @@
       "name": "North Relay",
       "type": "transit",
       "subtext": "Relay hub",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -102,7 +103,7 @@
       "name": "Glitch",
       "type": "fortune",
       "subtext": "Draw a card",
-      "icon": "❓",
+      "icon": "\u2753",
       "colorGroup": null,
       "image": ""
     },
@@ -135,7 +136,7 @@
       "name": "Lockdown",
       "type": "corner",
       "subtext": "Just visiting",
-      "icon": "■",
+      "icon": "\u25a0",
       "colorGroup": null,
       "image": ""
     },
@@ -157,7 +158,7 @@
       "name": "Coolant Grid",
       "type": "utility",
       "subtext": "Utility",
-      "icon": "💧",
+      "icon": "\ud83d\udca7",
       "colorGroup": null,
       "image": ""
     },
@@ -190,7 +191,7 @@
       "name": "East Relay",
       "type": "transit",
       "subtext": "Relay hub",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -203,7 +204,8 @@
       "subtext": "Price 100",
       "icon": "",
       "colorGroup": "#ffd23f",
-      "image": ""
+      "image": "https://picsum.photos/seed/circuitplaza/300/300",
+      "textBg": "rgba(13,14,26,0.65)"
     },
     {
       "index": 17,
@@ -212,7 +214,7 @@
       "name": "Cache Drop",
       "type": "fund",
       "subtext": "Draw a card",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "colorGroup": null,
       "image": ""
     },
@@ -245,7 +247,7 @@
       "name": "Sandbox",
       "type": "corner",
       "subtext": "System idle",
-      "icon": "★",
+      "icon": "\u2605",
       "colorGroup": null,
       "image": ""
     },
@@ -267,7 +269,7 @@
       "name": "Glitch",
       "type": "fortune",
       "subtext": "Draw a card",
-      "icon": "❓",
+      "icon": "\u2753",
       "colorGroup": null,
       "image": ""
     },
@@ -300,7 +302,7 @@
       "name": "South Relay",
       "type": "transit",
       "subtext": "Relay hub",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -333,7 +335,7 @@
       "name": "Power Grid",
       "type": "utility",
       "subtext": "Utility",
-      "icon": "⚡",
+      "icon": "\u26a1",
       "colorGroup": null,
       "image": ""
     },
@@ -355,7 +357,7 @@
       "name": "Purge",
       "type": "corner",
       "subtext": "Go directly to Lockdown",
-      "icon": "→",
+      "icon": "\u2192",
       "colorGroup": null,
       "image": ""
     },
@@ -388,7 +390,7 @@
       "name": "Cache Drop",
       "type": "fund",
       "subtext": "Draw a card",
-      "icon": "📦",
+      "icon": "\ud83d\udce6",
       "colorGroup": null,
       "image": ""
     },
@@ -410,7 +412,7 @@
       "name": "West Relay",
       "type": "transit",
       "subtext": "Relay hub",
-      "icon": "🚂",
+      "icon": "\ud83d\ude82",
       "colorGroup": null,
       "image": ""
     },
@@ -421,7 +423,7 @@
       "name": "Glitch",
       "type": "fortune",
       "subtext": "Draw a card",
-      "icon": "❓",
+      "icon": "\u2753",
       "colorGroup": null,
       "image": ""
     },
@@ -443,7 +445,7 @@
       "name": "Premium Fee",
       "type": "tax",
       "subtext": "Pay 75 credits",
-      "icon": "💎",
+      "icon": "\ud83d\udc8e",
       "colorGroup": null,
       "image": ""
     },

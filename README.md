@@ -72,6 +72,16 @@ Full field-by-field documentation lives as a comment block at the top of
     you want to
   - `rotate` — degrees clockwise, overrides the automatic rotation for that
     one space
+  - `textBg` — CSS color (hex or `rgba(...)`) applied behind the
+    name/subtext/icon, so text stays legible over a busy `image`
+
+### Images
+
+`image` renders as a full-bleed cover background for the entire square
+(behind the color bar and text), and rotates together with the rest of the
+cell's content. Pair it with `textBg` — something like `"rgba(0,0,0,0.55)"` —
+to keep the name readable over a photo. If the image URL fails to load, it
+falls back to `icon`.
 
 ### Rotation
 
